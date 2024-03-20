@@ -1,27 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Accordion from './components/Accordion/Accordion';
-import {Rating} from "./components/Rating/Rating";
+
+import {Rating, RatingValueType} from "./components/Rating/Rating";
+import {UncontrolledRating} from "./components/UncontrolledRating/Rating";
+import Accordion from "./components/Accordion/Accordion";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/Accordion";
 import {OnOff} from "./components/OnOff/OnOff";
+import {ControlledOnOff} from "./components/OnOff/СontrolledOnOff";
 
 function App() {
     console.log("App rendering")
-  return (
-      <div>
-          <Accordion block={`Menu`} collapsed={true}/>
-          <Accordion block={`Users`} collapsed={false}/>
 
-          <Rating value={0}/>
-          <Rating value={1}/>
-          <Rating value={2}/>
-          <Rating value={3}/>
-          <Rating value={4}/>
-          <Rating value={5}/>
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(1)
 
-          <OnOff switching={true}/>
-      </div>
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
 
-  );
+    let [on, setOn] = useState<boolean>(false)
+
+    return (
+        <div className={'App'}>
+            <Accordion block={`Menu`} collapsed={accordionCollapsed} onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
+            {/*<Accordion block={`Users`} collapsed={false}/>*/}
+
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+
+            {/*<ControlledOnOff on={on} onChangeHim={setOn}/>*/}
+
+            <OnOff onChange={setOn}/> {on.toString()}
+
+            {/*<UncontrolledAccordion titleValue={'Menu'}/>*/}
+            {/*<UncontrolledAccordion titleValue={'Users'}/>*/}
+
+            {/*<UncontrolledRating/>*/}
+        </div>
+    );
 }
 
 
@@ -32,13 +44,8 @@ type PageTitlePropsType = {
 
 function PageTitle(props: PageTitlePropsType) {
     console.log("PageTitle rendering")
-    return <h1>{ props.title }</h1>
+    return <h1>{props.title}</h1>
 }
-App();
 
 
-
-
-
-const app = App;
-    export default app;
+export default App;
