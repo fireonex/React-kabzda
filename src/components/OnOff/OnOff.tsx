@@ -3,13 +3,14 @@ import React, {useState} from 'react';
 type OnOffPropsType = {
     // switching: boolean
     onChange: (on: boolean) => void
+    defaultOn?: boolean
 }
 
 
 export const OnOff = (props: OnOffPropsType) => {
     console.log('onOff rendering')
 
-    let [on, setOn] = useState(false)
+    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false )
 
     console.log('on: ' + on)
 
