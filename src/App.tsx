@@ -19,7 +19,7 @@ function App() {
 
     return (
         <div className={'App'}>
-            <Accordion block={`Menu`} collapsed={accordionCollapsed} onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
+            {/*<Accordion block={`Menu`} collapsed={accordionCollapsed} onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>*/}
             {/*<Accordion block={`Users`} collapsed={false}/>*/}
 
             {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}

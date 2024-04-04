@@ -30,18 +30,26 @@ export default {
 //---------------------------------------------------------
 
 const onChangeHandler = action('changing')
+const onClickHandler = action('some item was clicked')
 
 export const collapsedAccordion = () => {
     return (
         <Accordion block={`collapsed accordion`} collapsed={true}
-                   onChange={onChangeHandler}/>
+                   onChange={onChangeHandler} onClick={onClickHandler} items={[]}/>
     )
 }
 
 export const openAccordion = () => {
     return (
         <Accordion block={`open accordion`} collapsed={false}
-                   onChange={onChangeHandler}/>
+                   onChange={onChangeHandler}
+                   onClick={onClickHandler}
+                   items={[
+                       {id: 1, name: 'Sam'},
+                       {id: 2, name: 'John'},
+                       {id: 3, name: 'Jake'},
+                       {id: 4, name: 'Van'}
+                   ]}/>
     )
 }
 
@@ -51,6 +59,15 @@ export const clickAccordion = () => {
 
     return (
         <Accordion block={`click accordion`} collapsed={collapsed}
-                   onChange={() => {setCollapsed(!collapsed)}}/>
+                   onChange={() => {
+                       setCollapsed(!collapsed)
+                   }}
+                   onClick={onClickHandler}
+                   items={[
+                       {id: 1, name: 'Sam'},
+                       {id: 2, name: 'John'},
+                       {id: 3, name: 'Jake'},
+                       {id: 4, name: 'Van'}
+                   ]}/>
     )
 }
