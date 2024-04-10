@@ -10,15 +10,17 @@ export default {
 
 const callbackHandler = action('on or off clicked')
 
+const OnOffMemo = React.memo(OnOff)
+
 export const ChangedOnOff = () => {
     return (
-        <OnOff onChange={callbackHandler} defaultOn={true}/>
+        <OnOffMemo onChange={callbackHandler} defaultOn={true}/>
     )
 }
 
 export const ChangedOnOff2 = () => {
     return (
-        <OnOff onChange={callbackHandler} defaultOn={false}/>
+        <OnOffMemo onChange={callbackHandler} defaultOn={false}/>
     )
 }
 

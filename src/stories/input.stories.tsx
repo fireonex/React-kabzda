@@ -1,7 +1,6 @@
 import React, {ChangeEvent, useRef, useState} from "react";
 
 
-
 export default {
     title: 'input',
 
@@ -72,6 +71,7 @@ export const ControlledCheckbox = () => {
         <input type={"checkbox"} onChange={onChangeInputHandler}/>
     )
 }
+
 
 export const ControlledSelect = () => {
     const [parentValue, setParentValue] = useState<string | undefined>(undefined)

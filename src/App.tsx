@@ -28,7 +28,7 @@ function App() {
 
             <OnOff onChange={setOn}/> {on.toString()}
 
-            {/*<UncontrolledAccordion titleValue={'Menu'}/>*/}
+            <UncontrolledAccordion titleValue={'Menu'}/>
             {/*<UncontrolledAccordion titleValue={'Users'}/>*/}
 
             {/*<UncontrolledRating/>*/}

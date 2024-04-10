@@ -4,6 +4,9 @@ type RatingPropsType = {
      //value: 0|1|2|3|4|5;
     //propsCallbackFunc: (value:  0|1|2|3|4|5) => void
 }
+
+
+
 export function UncontrolledRating(props: RatingPropsType) {
     console.log("Rating rendering")
 

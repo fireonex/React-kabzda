@@ -1,19 +1,21 @@
 import React, {useState} from "react";
 import {Select} from "./Select";
 import {action} from "@storybook/addon-actions";
+import {UncontrolledAccordion} from "../UncontrolledAccordion/UncontrolledAccordion";
 
 
 export default {
     title: 'select',
     component: Select
 }
+const SelectMemo = React.memo(Select)
 
 export const CustomSelect = () => {
 
     const [value, setValue] = useState(2)
 
     return (
-        <Select onChangeSelect={setValue}
+        <SelectMemo onChangeSelect={setValue}
                 value={value}
                 items={[
                     {value: 1, title: 'Sam'},
@@ -26,12 +28,13 @@ export const CustomSelect = () => {
 }
 
 
+
 export const CustomSelectWithoutValue = () => {
 
     const [value, setValue] = useState(null)
 
     return (
-        <Select onChangeSelect={setValue}
+        <SelectMemo onChangeSelect={setValue}
                 value={value}
                 items={[
                     {value: 1, title: 'Sam'},

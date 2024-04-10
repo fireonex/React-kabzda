@@ -9,7 +9,9 @@ export default {
     component: UncontrolledRating
 }
 
+const UncontrolledRatingMemo = React.memo(UncontrolledRating)
+
 export const UncontrolledRatingStory = () => {
-    return <UncontrolledRating/>
+    return <UncontrolledRatingMemo/>
 }
 

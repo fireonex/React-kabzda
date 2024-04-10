@@ -1,21 +1,21 @@
-import React, {useState} from "react";
+import React, {useReducer} from "react";
+import {reducer} from "./Reducer";
 
 type AccordionPropsType = {
     titleValue: string;
 }
 
-
 export function UncontrolledAccordion(props: AccordionPropsType) {
     console.log("Accordion rendering")
 
-    // const collapsed = false
-    let [collapsed, setCollapsed] = useState(false)
+    //let [collapsed, setCollapsed] = useState(false)
+    let [state, dispatch] = useReducer(reducer, {collapsed: false})
 
     return (
         <>
-            <AccordionTitle title={props.titleValue} onClick={() => setCollapsed(!collapsed)}/>
-            {/*<button onClick={() => setCollapsed(!collapsed)}>TOGGLE</button>*/}
-            {!collapsed && <AccordionBody/>}
+            {/*<AccordionTitle title={props.titleValue} onClick={() => setCollapsed(!collapsed)}/>*/}
+            <AccordionTitle title={props.titleValue} onClick={() => dispatch({type: 'SET-TOGGLE-COLLAPSED'})}/>
+            {!state.collapsed && <AccordionBody/>}
         </>
         //вместо кнопки кликать по h3, вызывая callback, который пришёл извне
     )
@@ -23,7 +23,6 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
 
 type AccordionTitlePropsType = {
     title: string;
-    // collapsed: boolean
     onClick: () => void
 }
 
