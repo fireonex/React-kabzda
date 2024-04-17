@@ -6,6 +6,8 @@ import {KeyboardEvent} from "react";
 type ItemType = {
     value: any
     title: string
+    country?: string
+    population?: number
 }
 
 type SelectProps = {
