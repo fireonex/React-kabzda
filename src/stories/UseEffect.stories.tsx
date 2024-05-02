@@ -41,3 +41,63 @@ export const SimpleExample = () => {
         </>
     )
 }
+
+
+export const SetTimeoutExample = () => {
+
+    //const initValue = useMemo(generateData, [])
+
+    const [counter, setCounter] = useState(1);
+    const [fake, setFake] = useState(1);
+
+
+    // useEffect(() => {
+    //     console.log('SetTimeout')
+    //     setTimeout(() => {
+    //         document.title = counter.toString()
+    //     }, 1000)
+    // },[counter])
+
+    useEffect(() => {
+        console.log('SetInterval')
+        setInterval(() => {
+            setCounter(state => state + 1)
+        }, 1000)
+    },[])
+
+
+    return (
+        <>
+            <button onClick={() => setFake(fake + 1)}>fake+</button>
+            <button onClick={() => setCounter(counter + 1)}>counter+</button>
+            <div>Counter: {counter}</div>
+            Fake: {fake}
+        </>
+    )
+}
+
+export const Clock = () => {
+
+    let date = new Date()
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let seconds = date.getSeconds()
+
+    const [time, setTime] = useState(seconds);
+    console.log('Clock rerender')
+
+    useEffect(() => {
+        console.log('UseEffect rerender')
+        setInterval(() => {
+            setTime(state => state + 1)
+        },1000)
+
+    },[])
+
+
+    return (
+        <>
+            <div>{hours}:{minutes}:{seconds}</div>
+        </>
+    )
+}
