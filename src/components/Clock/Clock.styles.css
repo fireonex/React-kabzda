@@ -1,0 +1,17 @@
+.clock {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-image: url("../../pictures/img.png");
+    background-size: contain;
+}
+
+.clockHand {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 4px;
+    background: black;
+    transform-origin: 100% 100%;
+}

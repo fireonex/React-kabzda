@@ -76,28 +76,28 @@ export const SetTimeoutExample = () => {
     )
 }
 
-export const Clock = () => {
-
-    let date = new Date()
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
-    let seconds = date.getSeconds()
-
-    const [time, setTime] = useState(seconds);
-    console.log('Clock rerender')
-
-    useEffect(() => {
-        console.log('UseEffect rerender')
-        setInterval(() => {
-            setTime(state => state + 1)
-        },1000)
-
-    },[])
-
-
-    return (
-        <>
-            <div>{hours}:{minutes}:{seconds}</div>
-        </>
-    )
-}
+// export const Clock = () => {
+//
+//     let date = new Date()
+//     let hours = date.getHours()
+//     let minutes = date.getMinutes()
+//     let seconds = date.getSeconds()
+//
+//     const [time, setTime] = useState(seconds);
+//     console.log('Clock rerender')
+//
+//     useEffect(() => {
+//         console.log('UseEffect rerender')
+//         setInterval(() => {
+//             setTime(state => state + 1)
+//         },1000)
+//
+//     },[])
+//
+//
+//     return (
+//         <>
+//             <div>{hours}:{minutes}:{seconds}</div>
+//         </>
+//     )
+// }
