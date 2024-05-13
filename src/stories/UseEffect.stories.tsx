@@ -76,7 +76,7 @@ export const SetTimeoutExample = () => {
     )
 }
 
-// export const Clock = () => {
+// export const ClockVers2 = () => {
 //
 //     let date = new Date()
 //     let hours = date.getHours()
@@ -84,7 +84,7 @@ export const SetTimeoutExample = () => {
 //     let seconds = date.getSeconds()
 //
 //     const [time, setTime] = useState(seconds);
-//     console.log('Clock rerender')
+//     console.log('ClockVers2 rerender')
 //
 //     useEffect(() => {
 //         console.log('UseEffect rerender')

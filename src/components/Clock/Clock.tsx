@@ -52,7 +52,7 @@ export const Clock = ({ mode,
 
 
 // import {useEffect, useState} from "react";
-// import "./Clock.styles.css"
+// import "./ClockVers2.styles.css"
 //
 // type defaultModeType = {
 //     seconds: number
@@ -69,7 +69,7 @@ export const Clock = ({ mode,
 //     visualMode: visualModeType
 // };
 //
-// export const Clock = ({defaultMode, visualMode}: ClockPropsType) => {
+// export const ClockVers2 = ({defaultMode, visualMode}: ClockPropsType) => {
 //
 //     const [date, setDate] = useState(new Date())
 //
@@ -101,11 +101,11 @@ export const Clock = ({ mode,
 
 
 // import {useEffect, useState} from "react";
-// import "./Clock.styles.css"
+// import "./ClockVers2.styles.css"
 //
 // type ClockPropsType = {};
 //
-// export const Clock = ({}: ClockPropsType) => {
+// export const ClockVers2 = ({}: ClockPropsType) => {
 //
 //     const [date, setDate] = useState(new Date())
 //
