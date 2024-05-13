@@ -28,8 +28,7 @@ export const SimpleExample = () => {
         console.log('useEffect3')
         document.title = counter.toString()
     }, [counter])//этот useEffect рендерится при первом рендере компоненты и тогда,
-                                    // когда то что внутри зависимости (counter) меняется
-
+    // когда то что внутри зависимости (counter) меняется
 
 
     return (
@@ -43,7 +42,7 @@ export const SimpleExample = () => {
 }
 
 
-export const SetTimeoutExample = () => {
+export const SetIntervalExample = () => {
 
     //const initValue = useMemo(generateData, [])
 
@@ -60,10 +59,14 @@ export const SetTimeoutExample = () => {
 
     useEffect(() => {
         console.log('SetInterval')
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             setCounter(state => state + 1)
         }, 1000)
-    },[])
+
+        return () => {
+            clearInterval(intervalId)
+        }
+    }, [])
 
 
     return (
@@ -76,28 +79,81 @@ export const SetTimeoutExample = () => {
     )
 }
 
-// export const ClockVers2 = () => {
-//
-//     let date = new Date()
-//     let hours = date.getHours()
-//     let minutes = date.getMinutes()
-//     let seconds = date.getSeconds()
-//
-//     const [time, setTime] = useState(seconds);
-//     console.log('ClockVers2 rerender')
-//
-//     useEffect(() => {
-//         console.log('UseEffect rerender')
-//         setInterval(() => {
-//             setTime(state => state + 1)
-//         },1000)
-//
-//     },[])
-//
-//
-//     return (
-//         <>
-//             <div>{hours}:{minutes}:{seconds}</div>
-//         </>
-//     )
-// }
+
+export const ResetEffectExample = () => {
+
+    const [counter, setCounter] = useState(1);
+
+    console.log('ResetEffectExample rendered with ' + counter)
+
+    useEffect(() => {
+        console.log('Effect occurred ' + counter)
+
+        return () => {
+            console.log('reset effect ' + counter)
+        }
+    }, [counter])
+
+
+    return (
+        <>
+
+            <button onClick={() => setCounter(counter + 1)}>counter+</button>
+            <div>Counter: {counter}</div>
+        </>
+    )
+}
+
+
+export const KeysTrackerExample = () => {
+
+    const [text, setText] = useState('');
+
+
+    useEffect(() => {
+
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText((text) => text + e.key)
+        }
+
+        window.document.addEventListener('keypress', handler)
+
+        return () => {
+            window.document.removeEventListener('keypress', handler)
+        }
+    }, [text])
+
+
+    return (
+        <>
+            <div>Text: {text}</div>
+        </>
+    )
+}
+
+
+export const SetTimeoutExample = () => {
+
+    const [text, setText] = useState('');
+
+
+    useEffect(() => {
+
+        const timeoutId = setTimeout(() => {
+            console.log('Timeout expired')
+            console.log('3 seconds have passed')
+        }, 3000)
+
+        return () => {
+            clearTimeout(timeoutId)
+        }
+    }, [text])
+
+
+    return (
+        <>
+            <div>Text: {text}</div>
+        </>
+    )
+}
